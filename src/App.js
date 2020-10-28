@@ -8,30 +8,6 @@ function App() {
         <li>
           <a href="/header">Header</a>
         </li>
-        <li>
-          <a href="/newsHero">News Hero</a>
-        </li>
-        <li>
-          <a href="/newsStory">News Story</a>
-        </li>
-        <li>
-          <a href="/softHero">Soft Hero</a>
-        </li>
-        <li>
-          <a href="/checklist">Checklist</a>
-        </li>
-        <li>
-          <a href="/product">Product</a>
-        </li>
-        <li>
-          <a href="/columns">Columns</a>
-        </li>
-        <li>
-          <a href="/appModule">App</a>
-        </li>
-        <li>
-          <a href="/footer">Footer</a>
-        </li>
       </ul>
     </Card>
   );
