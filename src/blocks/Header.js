@@ -25,16 +25,16 @@ class Article extends React.Component {
         let pattern, regex;
         let html = LAYOUT;
 
+        // --- Build Layout ---
         if (this.props.content.toggleME && this.props.content.brandName === "Isobar") {
-            regex = /\[gifHtml\]/gi;
             html = LAYOUT_ISO_ME;
         }
 
+        // --- Add configurations ---
         regex = /\[img_logo\]/gi;
         html = html.replace(regex, ui.images[this.props.content.brandId].logo.brand);
 
-
-        // Auto version
+        // --- Auto version ---
         let keys = Object.keys(this.props.content);
         for (let i = 0; i < keys.length; i++) {
             pattern = `\\[${keys[i]}\\]`;
@@ -43,9 +43,6 @@ class Article extends React.Component {
                 this.props.content[keys[i]]
             );
         }
-
-        regex = /_#(?=\w{6}\.png)/gi;
-        html = html.replace(regex, "_");
 
         sdk.setContent(html);
     };
@@ -57,14 +54,22 @@ class Article extends React.Component {
             } else {
                 this.props.initFromSaved({
                     content: {
+                        // Brand Selecting
                         brandName: "Select Brand",
                         brandId: "",
                         brandColor: "",
                         primaryFont: "",
+
+                        // Layouts
                         toggleME: false,
+
+                        // Configs
+                        link_logo: "",
                         img_logo: "",
                         alt_text: "",
                         img_logo_height: "30",
+
+                        // Inputs
                         img_ME_icon: "https://assets.prod.ibn.host/Isobar/Morning_Essentials/morning_essentials_icon.png",
                         text_ME: "Morning Essentials"
                     }
@@ -79,11 +84,11 @@ class Article extends React.Component {
             arr.push({
                 label: `${ui.brands[i].name}`,
                 value: `${ui.brands[i].id}`,
-                brandColor: `${ui.brands[i].colors.primary}`
+                brandColor: `${ui.brands[i].colors.primary}`,
+                website: `${ui.brands[i].website}`,
+                primaryFont: `${ui.brands[i].font.primary}`
             })
         }
-
-        console.log(arr)
         return arr;
     }
 
@@ -96,19 +101,15 @@ class Article extends React.Component {
                 <div className="slds-clearfix">
                     <div className="slds-float_left slds-m-right_medium slds-m-top_small">
                         {this.props.content.brandId === "" ? (
-                            <>
-                                <h1 className="slds-text-heading_large">{this.props.content.brandName}</h1>
-                            </>
+                            <h1 className="slds-text-heading_large">{this.props.content.brandName}</h1>
                         ) : null}
                         {this.props.content.brandId !== "" ? (
-                            <>
-                                <img src={this.props.content.img_logo} alt={this.props.content.brandName} style={{ height: "30px" }} />
-                            </>
+                            <img src={this.props.content.img_logo} alt={this.props.content.brandName} style={{ height: "30px" }} />
                         ) : null}
                         <IconSettings iconPath="/assets/icons">
                             <div className="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center slds-m-top_small">
                                 <div className="slds-col_padded">
-                                    <span>Change brand</span>
+                                    <span>Change brand &nbsp;</span>
                                     <Dropdown
                                         length={null}
                                         iconCategory="utility"
@@ -118,6 +119,8 @@ class Article extends React.Component {
                                             this.onChange("brandId", event.value);
                                             this.onChange("brandColor", event.brandColor);
                                             this.onChange("brandName", event.label);
+                                            this.onChange("link_logo", event.website);
+                                            this.onChange("primaryFont", event.primaryFont);
                                             this.onChange("img_logo", ui.images[event.value].logo.brand);
                                             if (event.value !== "iso") {
                                                 this.onChange("toggleME", false);

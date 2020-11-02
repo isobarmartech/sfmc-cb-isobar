@@ -10,7 +10,9 @@ export const LAYOUT = `
                 <tr>
                     <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
                     <td align="left">
-                        <img src="[img_logo]" alt="[alt_text]" width="auto" height="[img_logo_height]" style="display: block; border: 0; height: [img_logo_height]px; color: [brandColor]; font-family: [primaryFont]; font-size: 28px; font-weight: 400;" />
+                        <a href="[link_logo]" target="_blank">
+                            <img src="[img_logo]" alt="[alt_text]" width="auto" height="[img_logo_height]" style="display: block; border: 0; height: [img_logo_height]px; color: [brandColor]; font-family: [primaryFont]; font-size: 28px; font-weight: 400;" />
+                        </a>
                     </td>
                     <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
                 </tr>
@@ -39,7 +41,9 @@ export const LAYOUT_ISO_ME = `
                             </tr>
                             <tr>
                                 <td align="left">
-                                    <img src="[img_logo]" alt="[alt_text]" width="auto" height="[img_logo_height]" style="display: block; border: 0; height: [img_logo_height]px; color: [brandColor]; font-family: [primaryFont]; font-size: 28px; font-weight: 400;" />
+                                    <a href="[link_logo]" target="_blank">
+                                        <img src="[img_logo]" alt="[alt_text]" width="auto" height="[img_logo_height]" style="display: block; border: 0; height: [img_logo_height]px; color: [brandColor]; font-family: [primaryFont]; font-size: 28px; font-weight: 400;" />
+                                    </a>
                                 </td>
                             </tr>
                             <tr>
