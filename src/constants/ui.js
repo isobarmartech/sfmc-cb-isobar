@@ -90,6 +90,13 @@ export const ui = {
         }
     }],
     "images": {
+        "shared": {
+            "placeholders": {
+                "full": "https://via.placeholder.com/600x300",
+                "padded": "https://via.placeholder.com/540x300",
+                "fixed": "https://via.placeholder.com/280x280",
+            }
+        },
         "iso": {
             "logo": {
                 "brand": "https://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/cfd0899f-f82a-4823-a6ba-cd3c61a5cce8.png",

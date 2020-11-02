@@ -109,7 +109,7 @@ export const richTextToHtml = (value) => {
     let richText = value;
     let areg = /\[a url="([^"]+)"]((.|\n)+?)\[\/a\]/g;
     richText = richText.replace(areg, (match, $1, $2) => {
-        let result = `<a target="_blank" style="text-decoration: underline; color: [themeColor];" href="${$1}">${$2}</a>`;
+        let result = `<a target="_blank" style="text-decoration: underline; color: #000000;" href="${$1}">${$2}</a>`;
         return result;
     });
 

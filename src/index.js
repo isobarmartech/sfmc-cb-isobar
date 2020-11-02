@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 
 import Header from "./blocks/Header";
+import ImageArticle from "./blocks/ImageArticle";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -17,6 +18,7 @@ ReactDOM.render(
                 <Router>
                     <Route exact path="/" component={App} />
                     <Route exact path="/header" component={Header} />
+                    <Route exact path="/imageArticle" component={ImageArticle} />
                 </Router>
             </Provider>
         </IconSettings>

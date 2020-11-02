@@ -8,6 +8,9 @@ function App() {
         <li>
           <a href="/header">Header</a>
         </li>
+        <li>
+          <a href="/imageArticle">Image Article</a>
+        </li>
       </ul>
     </Card>
   );
