@@ -307,6 +307,29 @@ class Article extends React.Component {
                                 />
                             </div>
                         </div>
+                        <div className="slds-clearfix">
+                            <div className="slds-float_left slds-m-right_medium slds-m-top_small">
+                                <div className="slds-text-title">Alignment</div>
+                                <RadioButtonGroup
+                                    onChange={event => {
+                                        this.onChange("alignment", event.target.value);
+                                    }}
+                                >
+                                    <Radio
+                                        label="Left"
+                                        variant="button-group"
+                                        value="left"
+                                        checked={this.props.content.alignment === "left"}
+                                    ></Radio>
+                                    <Radio
+                                        label="Center"
+                                        variant="button-group"
+                                        value="center"
+                                        checked={this.props.content.alignment === "center"}
+                                    ></Radio>
+                                </RadioButtonGroup>
+                            </div>
+                        </div>
                         {this.props.content.toggleImg ? (
                             <>
                                 <div className="slds-clearfix">
