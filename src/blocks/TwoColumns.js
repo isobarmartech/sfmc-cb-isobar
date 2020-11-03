@@ -10,7 +10,7 @@ import {
 } from "@salesforce/design-system-react";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../core/helpers";
-import { LAYOUT, IMAGE_FULL, IMAGE_PADDED, IMAGE_FIXED, MAIN, HEADLINE, BULLET_INFO, CTA, BODY_TEXT } from "./layouts/imageArticle";
+import { LAYOUT, LAYOUT_NOIMAGE, HEADLINE, CTA, BODY_TEXT } from "./layouts/twoColumns";
 import { ui } from "../constants/ui.js";
 import RichTextEditor from '../components/RichTextEditor';
 import { richTextToHtml } from "../components/RichTextEditor";
@@ -28,38 +28,8 @@ class Article extends React.Component {
         let html = LAYOUT;
 
         // --- Build Layout ---
-
-
-        if (this.props.content.toggleImg) {
-            regex = /\[htmlImage\]/gi;
-            if (this.props.content.imgStyle === "full") {
-                html = html.replace(regex, IMAGE_FULL);
-            } else if (this.props.content.imgStyle === "padded") {
-                html = html.replace(regex, IMAGE_PADDED);
-            } else {
-                html = html.replace(regex, IMAGE_FIXED);
-            }
-        } else {
-            regex = /\[htmlImage\]/gi;
-            html = html.replace(regex, "");
-        }
-
-        if (this.props.content.toggleHeadline || this.props.content.toggleBulletInfo || this.props.content.toggleCta || this.props.content.toggleBodyText) {
-            regex = /\[htmlMain\]/gi;
-            html = html.replace(regex, MAIN);
-        } else {
-            regex = /\[htmlMain\]/gi;
-            html = html.replace(regex, "");
-        }
-
-        // Reorder layout
-        if (this.props.content.toggleCtaBodyOrder) {
-            regex = /\[htmlCta\]/gi;
-            html = html.replace(regex, "[htmlCta_temp]");
-            regex = /\[htmlBodyText\]/gi;
-            html = html.replace(regex, "[htmlCta]");
-            regex = /\[htmlCta_temp\]/gi;
-            html = html.replace(regex, "[htmlBodyText]");
+        if (!this.props.content.toggleImg) {
+            html = LAYOUT_NOIMAGE;
         }
 
         // Auto add layout
@@ -67,10 +37,6 @@ class Article extends React.Component {
             "toggle_name": "toggleHeadline",
             "html_regex": "htmlHeadline",
             "layout": HEADLINE
-        }, {
-            "toggle_name": "toggleBulletInfo",
-            "html_regex": "htmlBulletInfo",
-            "layout": BULLET_INFO
         }, {
             "toggle_name": "toggleCta",
             "html_regex": "htmlCta",
@@ -93,7 +59,7 @@ class Article extends React.Component {
         // --- Add Configurations ---
         if (this.props.content.imgSrc === "") {
             regex = /\[imgSrc\]/gi;
-            html = html.replace(regex, ui.images.shared.placeholders[this.props.content.imgStyle]);
+            html = html.replace(regex, "http://via.placeholder.com/240x240");
         }
         if (!this.props.content.toggleHeadlineSecondary) {
             regex = /\[textHeadlineSecondary\]/gi;
@@ -157,23 +123,19 @@ class Article extends React.Component {
                         // Layouts
                         toggleImg: true,
                         toggleHeadline: true,
-                        toggleBulletInfo: true,
-                        toggleCta: true,
+                        toggleCta: false,
                         toggleBodyText: true,
 
                         // Configs
-                        imgStyle: "full",
-                        alignment: "left",
-                        toggleHeadlineSecondary: false,
-                        headlineSize: "small",
+                        direction: "ltr",
+                        toggleHeadlineSecondary: true,
+                        headlineSize: "large",
                         ctaStyle: "default",
-                        toggleCtaBodyOrder: false,
 
                         // Inputs
                         imgSrc: "",
                         textHeadline: "Headline pt. 1",
                         textHeadlineSecondary: "Headline pt. 2",
-                        textBulletInfo: "Date x Time x Location",
                         textCta: "Click me",
                         linkCta: "#",
                         textBodyText: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
@@ -268,7 +230,7 @@ class Article extends React.Component {
                                 />
                             </div>
                             <div className="slds-float_left slds-m-right_medium slds-m-top_small">
-                                <div className="slds-text-title slds-m-bottom_xx-small">Bullet Info</div>
+                                <div className="slds-text-title slds-m-bottom_xx-small">Body Text</div>
                                 <Checkbox
                                     labels={{
                                         label: '',
@@ -276,8 +238,8 @@ class Article extends React.Component {
                                         toggleEnabled: ''
                                     }}
                                     variant="toggle"
-                                    checked={this.props.content.toggleBulletInfo}
-                                    onChange={(event) => { this.onChange('toggleBulletInfo', event.target.checked) }}
+                                    checked={this.props.content.toggleBodyText}
+                                    onChange={(event) => { this.onChange('toggleBodyText', event.target.checked) }}
                                 />
                             </div>
                             <div className="slds-float_left slds-m-right_medium slds-m-top_small">
@@ -293,39 +255,26 @@ class Article extends React.Component {
                                     onChange={(event) => { this.onChange('toggleCta', event.target.checked) }}
                                 />
                             </div>
-                            <div className="slds-float_left slds-m-right_medium slds-m-top_small">
-                                <div className="slds-text-title slds-m-bottom_xx-small">Body Text</div>
-                                <Checkbox
-                                    labels={{
-                                        label: '',
-                                        toggleDisabled: '',
-                                        toggleEnabled: ''
-                                    }}
-                                    variant="toggle"
-                                    checked={this.props.content.toggleBodyText}
-                                    onChange={(event) => { this.onChange('toggleBodyText', event.target.checked) }}
-                                />
-                            </div>
                         </div>
                         <div className="slds-clearfix">
                             <div className="slds-float_left slds-m-right_medium slds-m-top_small">
-                                <div className="slds-text-title">Alignment</div>
+                                <div className="slds-text-title">Direction</div>
                                 <RadioButtonGroup
                                     onChange={event => {
-                                        this.onChange("alignment", event.target.value);
+                                        this.onChange("direction", event.target.value);
                                     }}
                                 >
                                     <Radio
-                                        label="Left"
+                                        label="Text Left"
                                         variant="button-group"
-                                        value="left"
-                                        checked={this.props.content.alignment === "left"}
+                                        value="rtl"
+                                        checked={this.props.content.direction === "rtl"}
                                     ></Radio>
                                     <Radio
-                                        label="Center"
+                                        label="Text Right"
                                         variant="button-group"
-                                        value="center"
-                                        checked={this.props.content.alignment === "center"}
+                                        value="ltr"
+                                        checked={this.props.content.direction === "ltr"}
                                     ></Radio>
                                 </RadioButtonGroup>
                             </div>
@@ -333,36 +282,7 @@ class Article extends React.Component {
                         {this.props.content.toggleImg ? (
                             <>
                                 <div className="slds-clearfix">
-                                    <div className="slds-float_left slds-m-right_medium slds-m-top_small">
-                                        <div className="slds-text-title">Image style</div>
-                                        <RadioButtonGroup
-                                            onChange={event => {
-                                                this.onChange("imgStyle", event.target.value);
-                                            }}
-                                        >
-                                            <Radio
-                                                label="Full"
-                                                variant="button-group"
-                                                value="full"
-                                                checked={this.props.content.imgStyle === "full"}
-                                            ></Radio>
-                                            <Radio
-                                                label="Padded"
-                                                variant="button-group"
-                                                value="padded"
-                                                checked={this.props.content.imgStyle === "padded"}
-                                            ></Radio>
-                                            <Radio
-                                                label="Fixed"
-                                                variant="button-group"
-                                                value="fixed"
-                                                checked={this.props.content.imgStyle === "fixed"}
-                                            ></Radio>
-                                        </RadioButtonGroup>
-                                    </div>
-                                </div>
-                                <div className="slds-clearfix">
-                                    <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Image URL <span style={{ color: "#0070d2" }}>- Image size: {this.props.content.imgStyle === "full" ? "Width: 600px" : (this.props.content.imgStyle === "padded" ? "Width: 540px" : "Width: 280px")}</span></div>
+                                    <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Image URL <span style={{ color: "#0070d2" }}>- Image size: Width: 240px</span></div>
                                     <Input
                                         value={this.props.content.imgSrc}
                                         onChange={event => {
@@ -447,17 +367,6 @@ class Article extends React.Component {
                                 </div>
                             </>
                         ) : null}
-                        {this.props.content.toggleBulletInfo ? (
-                            <>
-                                <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Bullet Info Text</div>
-                                <Input
-                                    value={this.props.content.textBulletInfo}
-                                    onChange={event => {
-                                        this.onChange("textBulletInfo", event.target.value);
-                                    }}
-                                />
-                            </>
-                        ) : null}
                         {this.props.content.toggleCta ? (
                             <>
                                 <div className="slds-clearfix">
@@ -505,21 +414,6 @@ class Article extends React.Component {
                             <>
                                 <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Body Text</div>
                                 <RichTextEditor onChange={(data) => this.onChange("textBodyText", data)} text={this.props.content.textBodyText} toggleBold={false} toggleItalic={false} toggleLink={true} />
-                            </>
-                        ) : null}
-                        {this.props.content.toggleCta && this.props.content.toggleBodyText ? (
-                            <>
-                                <div className="slds-text-title slds-m-bottom_xx-small">Toggle CTA and Body Text Order</div>
-                                <Checkbox
-                                    labels={{
-                                        label: '',
-                                        toggleDisabled: '',
-                                        toggleEnabled: ''
-                                    }}
-                                    variant="toggle"
-                                    checked={this.props.content.toggleCtaBodyOrder}
-                                    onChange={(event) => { this.onChange('toggleCtaBodyOrder', event.target.checked) }}
-                                />
                             </>
                         ) : null}
                     </>

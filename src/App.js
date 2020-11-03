@@ -11,6 +11,9 @@ function App() {
         <li>
           <a href="/imageArticle">Image Article</a>
         </li>
+        <li>
+          <a href="/twoColumns">Two Columns</a>
+        </li>
       </ul>
     </Card>
   );

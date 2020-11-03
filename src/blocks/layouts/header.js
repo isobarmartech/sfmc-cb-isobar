@@ -8,13 +8,13 @@ export const LAYOUT = `
                     <td colspan="3" height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
                 </tr>
                 <tr>
-                    <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
+                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                     <td align="left">
                         <a href="[link_logo]" target="_blank">
                             <img src="[img_logo]" alt="[alt_text]" width="auto" height="[img_logo_height]" style="display: block; border: 0; height: [img_logo_height]px; color: [brandColor]; font-family: [primaryFont]; font-size: 28px; font-weight: 400;" />
                         </a>
                     </td>
-                    <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
+                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                 </tr>
                 <tr>
                     <td colspan="3" height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
@@ -33,7 +33,7 @@ export const LAYOUT_ISO_ME = `
         <td align="center">
             <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
                 <tr>
-                    <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
+                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                     <td width="110" style="width: 110px;">
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
                             <tr>
@@ -84,7 +84,7 @@ export const LAYOUT_ISO_ME = `
                             </tr>
                         </table>
                     </td>
-                    <td width="20" style="font-size: 1px; line-height: 1px; width: 20px;">&nbsp;</td>
+                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                 </tr>
             </table>
         </td>

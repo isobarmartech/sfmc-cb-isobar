@@ -128,7 +128,7 @@ export const CTA = `
         <table border="0" cellspacing="0" cellpadding="0">
             <tr>
                 <td style="border: 2px solid [ctaColorPrimary]">
-                    <a href="[linkCta]" target="_blank" style="font-size: 16px; line-height: 20px; font-family: [primaryFont]; color: [ctaColorPrimary]; text-decoration: none; border-radius: 0px; -webkit-border-radius: 0px; background-color: [ctaColorSecondary]; border-top: 15px solid [ctaColorSecondary]; border-bottom: 15px solid [ctaColorSecondary]; border-right: 30px solid [ctaColorSecondary]; border-left: 30px solid [ctaColorSecondary]; display: inline-block;">
+                    <a href="[linkCta]" target="_blank" style="font-size: 16px; line-height: 20px; font-family: [primaryFont]; color: [ctaColorPrimary]; text-decoration: none; border-radius: 0px; -webkit-border-radius: 0px; background-color: [ctaColorSecondary]; border-top: 15px solid [ctaColorSecondary]; border-bottom: 15px solid [ctaColorSecondary]; border-right: 30px solid [ctaColorSecondary]; border-left: 30px solid [ctaColorSecondary]; display: inline-block; font-weight: 400;">
                         <!--[if mso]>&nbsp;&nbsp;&nbsp;<![endif]--><span>[textCta]</span>
                         <!--[if mso]>&nbsp;&nbsp;&nbsp;<![endif]-->
                     </a>

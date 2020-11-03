@@ -10,6 +10,7 @@ import store from "./store/index";
 
 import Header from "./blocks/Header";
 import ImageArticle from "./blocks/ImageArticle";
+import TwoColumns from "./blocks/TwoColumns";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -19,6 +20,7 @@ ReactDOM.render(
                     <Route exact path="/" component={App} />
                     <Route exact path="/header" component={Header} />
                     <Route exact path="/imageArticle" component={ImageArticle} />
+                    <Route exact path="/twoColumns" component={TwoColumns} />
                 </Router>
             </Provider>
         </IconSettings>
