@@ -139,6 +139,7 @@ class Article extends React.Component {
                             <div className="slds-float_left slds-m-right_medium slds-m-top_small">
                                 <div className="slds-text-title slds-m-bottom_xx-small">Logo size</div>
                                 <RadioButtonGroup
+                                    disabled={this.props.content.toggleME}
                                     onChange={event => {
                                         this.onChange("img_logo_height", event.target.value);
                                     }}
@@ -171,7 +172,10 @@ class Article extends React.Component {
                                             }}
                                             variant="toggle"
                                             checked={this.props.content.toggleME}
-                                            onChange={(event) => { this.onChange('toggleME', event.target.checked) }}
+                                            onChange={(event) => {
+                                                this.onChange('toggleME', event.target.checked)
+                                                this.props.content.toggleME ? this.onChange('img_logo_height', this.props.content.img_logo_height) : this.onChange('img_logo_height', "30");
+                                            }}
                                         />
                                     </div>
                                 </div>

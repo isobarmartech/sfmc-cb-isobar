@@ -123,8 +123,8 @@ class Article extends React.Component {
                         // Layouts
                         toggleImg: true,
                         toggleHeadline: true,
-                        toggleCta: false,
                         toggleBodyText: true,
+                        toggleCta: false,
 
                         // Configs
                         direction: "ltr",
@@ -152,7 +152,6 @@ class Article extends React.Component {
                 label: `${ui.brands[i].name}`,
                 value: `${ui.brands[i].id}`,
                 brandColor: `${ui.brands[i].colors.primary}`,
-                website: `${ui.brands[i].website}`,
                 primaryFont: `${ui.brands[i].font.primary}`
             })
         }
@@ -186,12 +185,8 @@ class Article extends React.Component {
                                             this.onChange("brandId", event.value);
                                             this.onChange("brandColor", event.brandColor);
                                             this.onChange("brandName", event.label);
-                                            this.onChange("link_logo", event.website);
                                             this.onChange("primaryFont", event.primaryFont);
                                             this.onChange("img_logo", ui.images[event.value].logo.brand);
-                                            if (event.value !== "iso") {
-                                                this.onChange("toggleME", false);
-                                            }
                                         }}
                                         options={this.brandList()}
                                     />

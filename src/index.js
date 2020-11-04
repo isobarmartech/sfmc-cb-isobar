@@ -11,6 +11,8 @@ import store from "./store/index";
 import Header from "./blocks/Header";
 import ImageArticle from "./blocks/ImageArticle";
 import TwoColumns from "./blocks/TwoColumns";
+import DoubleStory from "./blocks/DoubleStory";
+import InformationBullets from "./blocks/InformationBullets";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -21,6 +23,8 @@ ReactDOM.render(
                     <Route exact path="/header" component={Header} />
                     <Route exact path="/imageArticle" component={ImageArticle} />
                     <Route exact path="/twoColumns" component={TwoColumns} />
+                    <Route exact path="/doubleStory" component={DoubleStory} />
+                    <Route exact path="/informationBullets" component={InformationBullets} />
                 </Router>
             </Provider>
         </IconSettings>

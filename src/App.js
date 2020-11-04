@@ -14,6 +14,12 @@ function App() {
         <li>
           <a href="/twoColumns">Two Columns</a>
         </li>
+        <li>
+          <a href="/doubleStory">Double Story</a>
+        </li>
+        <li>
+          <a href="/informationBullets">Information Bullets</a>
+        </li>
       </ul>
     </Card>
   );
