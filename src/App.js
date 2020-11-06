@@ -20,6 +20,12 @@ function App() {
         <li>
           <a href="/informationBullets">Information Bullets</a>
         </li>
+        <li>
+          <a href="/program">Program</a>
+        </li>
+        <li>
+          <a href="/ctaGroup">CTA Group</a>
+        </li>
       </ul>
     </Card>
   );

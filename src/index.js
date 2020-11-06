@@ -13,6 +13,8 @@ import ImageArticle from "./blocks/ImageArticle";
 import TwoColumns from "./blocks/TwoColumns";
 import DoubleStory from "./blocks/DoubleStory";
 import InformationBullets from "./blocks/InformationBullets";
+import Program from "./blocks/Program";
+import CtaGroup from "./blocks/CtaGroup";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -25,6 +27,8 @@ ReactDOM.render(
                     <Route exact path="/twoColumns" component={TwoColumns} />
                     <Route exact path="/doubleStory" component={DoubleStory} />
                     <Route exact path="/informationBullets" component={InformationBullets} />
+                    <Route exact path="/program" component={Program} />
+                    <Route exact path="/ctaGroup" component={CtaGroup} />
                 </Router>
             </Provider>
         </IconSettings>

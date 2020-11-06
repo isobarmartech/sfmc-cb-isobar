@@ -5,11 +5,12 @@ import {
     IconSettings,
     RadioButtonGroup,
     Radio,
-    Dropdown
+    Dropdown,
+    Checkbox
 } from "@salesforce/design-system-react";
 import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../core/helpers";
-import { LAYOUT_2, LAYOUT_3 } from "./layouts/informationBullets";
+import { LAYOUT_2, LAYOUT_3, INTRO } from "./layouts/informationBullets";
 import { ui } from "../constants/ui.js";
 import RichTextEditor from '../components/RichTextEditor';
 import { richTextToHtml } from "../components/RichTextEditor";
@@ -33,36 +34,16 @@ class Article extends React.Component {
         if (this.props.content.columnAmount === "3") {
             html = LAYOUT_3;
         }
+        if (this.props.content.toggleIntro) {
+            regex = /\[htmlIntro\]/gi;
+            html = html.replace(regex, INTRO);
+        } else {
+            regex = /\[htmlIntro\]/gi;
+            html = html.replace(regex, "");
+        }
+
 
         // --- Add Configurations ---
-        if (!this.props.content.toggleHeadlineSecondary) {
-            regex = /\[textHeadlineSecondary_1\]/gi;
-            html = html.replace(regex, "");
-            regex = /\[textHeadlineSecondary_2\]/gi;
-            html = html.replace(regex, "");
-        }
-        if (this.props.content.headlineSize === "small") {
-            regex = /\[textHeadlineFontsize\]/gi;
-            html = html.replace(regex, "24");
-            regex = /\[textHeadlineLineheight\]/gi;
-            html = html.replace(regex, "28");
-        } else if (this.props.content.headlineSize === "large") {
-            regex = /\[textHeadlineFontsize\]/gi;
-            html = html.replace(regex, "32");
-            regex = /\[textHeadlineLineheight\]/gi;
-            html = html.replace(regex, "40");
-        }
-        if (this.props.content.ctaStyle === "outline") {
-            regex = /\[ctaColorPrimary\]/gi;
-            html = html.replace(regex, "[brandColor]");
-            regex = /\[ctaColorSecondary\]/gi;
-            html = html.replace(regex, "#FFFFFF");
-        } else if (this.props.content.ctaStyle === "default") {
-            regex = /\[ctaColorPrimary\]/gi;
-            html = html.replace(regex, "#FFFFFF");
-            regex = /\[ctaColorSecondary\]/gi;
-            html = html.replace(regex, "[brandColor]");
-        }
 
         // Handle Rich Text Input
         if (this.props.content.textBodyText_1 !== undefined) {
@@ -102,8 +83,6 @@ class Article extends React.Component {
 
                         // Layouts
                         toggleIntro: true,
-                        toggleHeadline: true,
-                        toggleBodyText: true,
 
                         // Configs
                         columnAmount: "3",
@@ -178,6 +157,21 @@ class Article extends React.Component {
                     <>
                         <div className="slds-clearfix">
                             <div className="slds-float_left slds-m-right_medium slds-m-top_small">
+                                <div className="slds-text-title slds-m-bottom_xx-small">Intro</div>
+                                <Checkbox
+                                    labels={{
+                                        label: '',
+                                        toggleDisabled: '',
+                                        toggleEnabled: ''
+                                    }}
+                                    variant="toggle"
+                                    checked={this.props.content.toggleIntro}
+                                    onChange={(event) => { this.onChange('toggleIntro', event.target.checked) }}
+                                />
+                            </div>
+                        </div>
+                        <div className="slds-clearfix">
+                            <div className="slds-float_left slds-m-right_medium slds-m-top_small">
                                 <div className="slds-text-title">Column Amount</div>
                                 <RadioButtonGroup
                                     onChange={event => {
@@ -199,15 +193,17 @@ class Article extends React.Component {
                                 </RadioButtonGroup>
                             </div>
                         </div>
-                        <div className="slds-clearfix">
-                            <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Intro Text</div>
-                            <Input
-                                value={this.props.content.textIntro}
-                                onChange={event => {
-                                    this.onChange("textIntro", event.target.value);
-                                }}
-                            />
-                        </div>
+                        {this.props.content.toggleIntro ? (
+                            <div className="slds-clearfix">
+                                <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Intro Text</div>
+                                <Input
+                                    value={this.props.content.textIntro}
+                                    onChange={event => {
+                                        this.onChange("textIntro", event.target.value);
+                                    }}
+                                />
+                            </div>
+                        ) : null}
                         <div className="slds-theme_shade slds-p-around_medium slds-m-top_small slds-box">
                             <div className="slds-text-heading_small slds-m-bottom_xx-small">Column 1</div>
                             <div className="slds-clearfix">
@@ -252,7 +248,6 @@ class Article extends React.Component {
                                 </div>
                             </div>
                         ) : null}
-
                     </>
                 ) : null
                 }

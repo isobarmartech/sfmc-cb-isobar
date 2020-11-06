@@ -4,22 +4,7 @@ export const LAYOUT_2 = `
     <tr>
         <td align="center">
             <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full" bgcolor="#FFFFFF">
-                <tr>
-                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
-                    <td>
-                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                            <tr>
-                                <td align="center" style="font-size: 32px; line-height: 40px; color: [brandColor]; font-family: [primaryFont]; font-weight: 400;">
-                                    [textIntro]
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="h-20" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
-                </tr>
+                [htmlIntro]
                 <tr>
                     <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                     <td>
@@ -154,22 +139,7 @@ export const LAYOUT_3 = `
     <tr>
         <td align="center">
             <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full" bgcolor="#FFFFFF">
-                <tr>
-                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
-                    <td>
-                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                            <tr>
-                                <td align="center" style="font-size: 32px; line-height: 40px; color: [brandColor]; font-family: [primaryFont]; font-weight: 400;">
-                                    [textIntro]
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="h-20" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-                            </tr>
-                        </table>
-                    </td>
-                    <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
-                </tr>
+                [htmlIntro]
                 <tr>
                     <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                     <td>
@@ -350,4 +320,23 @@ export const LAYOUT_3 = `
     </tr>
 </table>
 <!-- INFORMATION BULLETS END -->
+`
+
+export const INTRO = `
+<tr>
+<td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
+<td>
+    <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <tr>
+            <td align="center" style="font-size: 32px; line-height: 40px; color: [brandColor]; font-family: [primaryFont]; font-weight: 400;">
+                [textIntro]
+            </td>
+        </tr>
+        <tr>
+            <td class="h-20" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+        </tr>
+    </table>
+</td>
+<td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
+</tr>
 `
