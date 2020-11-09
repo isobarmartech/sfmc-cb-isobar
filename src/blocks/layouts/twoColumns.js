@@ -31,6 +31,9 @@ export const LAYOUT = `
                     </td>
                     <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
                 </tr>
+                <tr>
+                    <td colspan="3" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                </tr>
             </table>
         </td>
     </tr>

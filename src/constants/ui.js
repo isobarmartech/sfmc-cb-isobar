@@ -16,7 +16,7 @@ export const ui = {
                 "address": {
                     "street": "Meldahlsgade 5, 5.",
                     "city": "1613 København V",
-                    "maps": "https://goo.gl/maps/hWAFbEBUTVk5mZS7A"
+                    "maps": "https://g.page/IsobarDanmark?share"
                 },
                 "phone": {
                     "text": "(+45) 88 38 30 10",

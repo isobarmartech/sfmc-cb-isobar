@@ -16,6 +16,9 @@ export const LAYOUT = `
             </table>
         </td>
     </tr>
+    <tr>
+        <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+    </tr>
 </table>
 <!-- CTA GROUP END -->
 `;

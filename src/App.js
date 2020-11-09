@@ -26,6 +26,9 @@ function App() {
         <li>
           <a href="/ctaGroup">CTA Group</a>
         </li>
+        <li>
+          <a href="/footer">Footer</a>
+        </li>
       </ul>
     </Card>
   );

@@ -15,6 +15,7 @@ import DoubleStory from "./blocks/DoubleStory";
 import InformationBullets from "./blocks/InformationBullets";
 import Program from "./blocks/Program";
 import CtaGroup from "./blocks/CtaGroup";
+import Footer from "./blocks/Footer";
 
 ReactDOM.render(
     <React.StrictMode>
@@ -29,6 +30,7 @@ ReactDOM.render(
                     <Route exact path="/informationBullets" component={InformationBullets} />
                     <Route exact path="/program" component={Program} />
                     <Route exact path="/ctaGroup" component={CtaGroup} />
+                    <Route exact path="/footer" component={Footer} />
                 </Router>
             </Provider>
         </IconSettings>

@@ -134,7 +134,7 @@ class Article extends React.Component {
 
                         // Configs
                         eventAmount: "3",
-                        ctaStyle: "outline",
+                        ctaStyle: "default",
 
                         // Inputs
                         textIntro: "Program",

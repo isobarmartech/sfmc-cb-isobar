@@ -1,43 +1,48 @@
 export const LAYOUT = `
 <!-- PROGRAM START -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#000000">
-    <tbody>
-        <tr>
-            <td align="center">
-                <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
-                    <tbody>
-                        <tr>
-                            <td width="70" class="w-30" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
-                            <td>
-                                <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                    <tbody>
-                                        <tr>
-                                            <td height="50" style="font-size: 1px; line-height: 1px; height: 50px;">&nbsp;</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="font-size: 32px; line-height: 40px; color: #FFFFFF; font-family: [primaryFont]">
-                                                [textIntro]
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-                                        </tr>
-                                        [htmlEvents]
-                                        <tr>
-                                            <td height="50" style="font-size: 1px; line-height: 1px; height: 50px;">&nbsp;</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                            <td width="70" class="w-30" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </tbody>
+    <tr>
+        <td align="center">
+            <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
+                <tr>
+                    <td width="70" class="w-30" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
+                    <td>
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tr>
+                                <td height="50" style="font-size: 1px; line-height: 1px; height: 50px;">&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td style="font-size: 32px; line-height: 40px; color: #FFFFFF; font-family: [primaryFont]">
+                                    [textIntro]
+                                </td>
+                            </tr>
+                            <tr>
+                                <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                            </tr>
+                            [htmlEvents]
+                            <tr>
+                                <td height="50" style="font-size: 1px; line-height: 1px; height: 50px;">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="70" class="w-30" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 </table>
 [htmlSignupBox]
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr>
+        <td align="center">
+            <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
+                <tr>
+                    <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 <!-- PROGRAM END -->
 `;
 
@@ -67,16 +72,16 @@ export const SUBHEADLINE = `
 
 export const SIGNUP_BOX = `
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="[brandColor]">
-    <tbody>
+    
         <tr>
             <td align="center">
                 <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
-                    <tbody>
+                    
                         <tr>
                             <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
                             <td>
                                 <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                    <tbody>
+                                    
                                         <tr>
                                             <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
                                         </tr>
@@ -85,16 +90,16 @@ export const SIGNUP_BOX = `
                                         <tr>
                                             <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
                                         </tr>
-                                    </tbody>
+                                    
                                 </table>
                             </td>
                             <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
                         </tr>
-                    </tbody>
+                    
                 </table>
             </td>
         </tr>
-    </tbody>
+    
 </table>
 `
 
