@@ -50,7 +50,7 @@ export const SINGLE_EVENT = `
 <!-- single event -->
 <tr>
     <td style="font-size: 32px; line-height: 40px; color: #FFFFFF; font-family: [primaryFont]">
-        [textTime]
+        <a style="color: #FFFFFF; text-decoration: none;">[textTime]</a>
         <br>
         [textHeadline]
     </td>
@@ -72,34 +72,28 @@ export const SUBHEADLINE = `
 
 export const SIGNUP_BOX = `
 <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="[brandColor]">
-    
-        <tr>
-            <td align="center">
-                <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
-                    
-                        <tr>
-                            <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
-                            <td>
-                                <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                                    
-                                        <tr>
-                                            <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-                                        </tr>
-                                        [htmlBodyText]
-                                        [htmlCta]
-                                        <tr>
-                                            <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-                                        </tr>
-                                    
-                                </table>
-                            </td>
-                            <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
-                        </tr>
-                    
-                </table>
-            </td>
-        </tr>
-    
+    <tr>
+        <td align="center">
+            <table border="0" cellspacing="0" cellpadding="0" width="600" style="width: 600px;" class="w-full">
+                <tr>
+                    <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
+                    <td>
+                        <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                            <tr>
+                                <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                            </tr>
+                            [htmlBodyText]
+                            [htmlCta]
+                            <tr>
+                                <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
+                </tr>
+            </table>
+        </td>
+    </tr>
 </table>
 `
 

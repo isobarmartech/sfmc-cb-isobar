@@ -70,7 +70,7 @@ export const MAIN = `
 <!-- main -->
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-        <td class="w-20" width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
+        <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
         <td>
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 [htmlHeadline]
@@ -79,7 +79,7 @@ export const MAIN = `
                 [htmlBodyText]
             </table>
         </td>
-        <td class="w-20" width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
+        <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
     </tr>
 </table>
 <!-- main -->

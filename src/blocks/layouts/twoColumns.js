@@ -9,17 +9,17 @@ export const LAYOUT = `
                     <td>
                         <table border="0" cellspacing="0" cellpadding="0" width="100%" dir="[direction]">
                             <tr>
-                                <th class="break" width="240" style="width: 240;" valign="middle">
+                                <th class="break" width="250" style="width: 250;" valign="middle">
                                     <table border="0" cellspacing="0" cellpadding="0" width="100%" dir="ltr">
                                         <tr>
-                                            <td align="center" width="240" style="width: 240px;">
-                                                <img src="[imgSrc]" alt="" width="240" height="auto" style="display: block; border: 0; width: 240px;">
+                                            <td align="center">
+                                                <img src="[imgSrc]" alt="" width="250" height="auto" style="display: block; border: 0; width: 250px;" class="w-full">
                                             </td>
                                         </tr>
                                     </table>
                                 </th>
-                                <th class="break" width="35" height="30" style="font-size: 1px; line-height: 1px; width: 35px; height: 30px;">&nbsp;</th>
-                                <th class="break" width="265" style="width: 265px;" valign="middle">
+                                <th class="break" width="40" height="30" style="font-size: 1px; line-height: 1px; width: 40px; height: 30px;">&nbsp;</th>
+                                <th class="break" width="250" style="width: 250px;" valign="middle">
                                     <table border="0" cellspacing="0" cellpadding="0" width="100%" dir="ltr">
                                         [htmlHeadline]
                                         [htmlBodyText]

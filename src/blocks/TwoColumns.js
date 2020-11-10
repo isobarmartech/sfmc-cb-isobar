@@ -59,7 +59,7 @@ class Article extends React.Component {
         // --- Add Configurations ---
         if (this.props.content.imgSrc === "") {
             regex = /\[imgSrc\]/gi;
-            html = html.replace(regex, "http://via.placeholder.com/240x240");
+            html = html.replace(regex, "http://via.placeholder.com/250x250");
         }
         if (!this.props.content.toggleHeadlineSecondary) {
             regex = /\[textHeadlineSecondary\]/gi;
@@ -277,7 +277,7 @@ class Article extends React.Component {
                         {this.props.content.toggleImg ? (
                             <>
                                 <div className="slds-clearfix">
-                                    <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Image URL <span style={{ color: "#0070d2" }}>- Image size: Width: 240px</span></div>
+                                    <div className="slds-text-title slds-m-top_small slds-m-bottom_xx-small">Image URL <span style={{ color: "#0070d2" }}>- Image size: Width: 250px</span></div>
                                     <Input
                                         value={this.props.content.imgSrc}
                                         onChange={event => {

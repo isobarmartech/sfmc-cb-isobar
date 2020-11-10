@@ -99,8 +99,8 @@ export const ui = {
         },
         "iso": {
             "logo": {
-                "brand": "https://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/cfd0899f-f82a-4823-a6ba-cd3c61a5cce8.png",
-                "white": "https://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/747ef43c-b590-404e-9d8a-0b8384523e05.png",
+                "brand": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/cfd0899f-f82a-4823-a6ba-cd3c61a5cce8.png",
+                "white": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/747ef43c-b590-404e-9d8a-0b8384523e05.png",
             },
             "bullet": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/0ddb68dd-02e5-4588-9307-71b088914f11.png"
         },
@@ -109,7 +109,7 @@ export const ui = {
                 "brand": "https://eaca.eu/wp-content/uploads/2018/03/carat-logo-large.png",
                 "white": "https://logodix.com/logo/1688757.png",
             },
-            "bullet": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/0ddb68dd-02e5-4588-9307-71b088914f11.png"
+            "bullet": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/3fbfc6fb-7e50-41e3-b3b0-92f5c71c7edf.png"
         }
     }
 }
