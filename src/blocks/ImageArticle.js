@@ -14,6 +14,7 @@ import { LAYOUT, IMAGE_FULL, IMAGE_PADDED, IMAGE_FIXED, MAIN, HEADLINE, BULLET_I
 import { ui } from "../constants/ui.js";
 import RichTextEditor from '../components/RichTextEditor';
 import { richTextToHtml } from "../components/RichTextEditor";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
@@ -29,7 +30,7 @@ class Article extends React.Component {
 
         // --- Build Layout ---
 
-
+        // img
         if (this.props.content.toggleImg) {
             regex = /\[htmlImage\]/gi;
             if (this.props.content.imgStyle === "full") {
@@ -39,11 +40,13 @@ class Article extends React.Component {
             } else {
                 html = html.replace(regex, IMAGE_FIXED);
             }
+            html = addSpacer(html, this.props.content, ["toggleHeadline", "toggleBulletInfo", "toggleCta", "toggleBodyText"], 40, `colspan="3"`);
         } else {
             regex = /\[htmlImage\]/gi;
             html = html.replace(regex, "");
         }
 
+        // main
         if (this.props.content.toggleHeadline || this.props.content.toggleBulletInfo || this.props.content.toggleCta || this.props.content.toggleBodyText) {
             regex = /\[htmlMain\]/gi;
             html = html.replace(regex, MAIN);
@@ -52,7 +55,31 @@ class Article extends React.Component {
             html = html.replace(regex, "");
         }
 
-        // Reorder layout
+        // headline
+        if (this.props.content.toggleHeadline) {
+            regex = /\[htmlHeadline\]/gi;
+            html = html.replace(regex, HEADLINE);
+            if (this.props.content.toggleBulletInfo) {
+                html = addSpacer(html, this.props.content, ["toggleBulletInfo"], 10, ``);
+            } else {
+                html = addSpacer(html, this.props.content, ["toggleCta", "toggleBodyText"], 20, ``);
+            }
+        } else {
+            regex = /\[htmlHeadline\]/gi;
+            html = html.replace(regex, "");
+        }
+
+        // bullet info
+        if (this.props.content.toggleBulletInfo) {
+            regex = /\[htmlBulletInfo\]/gi;
+            html = html.replace(regex, BULLET_INFO);
+            html = addSpacer(html, this.props.content, ["toggleCta", "toggleBodyText"], 20, ``);
+        } else {
+            regex = /\[htmlBulletInfo\]/gi;
+            html = html.replace(regex, "");
+        }
+
+        // reorder cta and body
         if (this.props.content.toggleCtaBodyOrder) {
             regex = /\[htmlCta\]/gi;
             html = html.replace(regex, "[htmlCta_temp]");
@@ -62,32 +89,34 @@ class Article extends React.Component {
             html = html.replace(regex, "[htmlBodyText]");
         }
 
-        // Auto add layout
-        const layoutArr = [{
-            "toggle_name": "toggleHeadline",
-            "html_regex": "htmlHeadline",
-            "layout": HEADLINE
-        }, {
-            "toggle_name": "toggleBulletInfo",
-            "html_regex": "htmlBulletInfo",
-            "layout": BULLET_INFO
-        }, {
-            "toggle_name": "toggleCta",
-            "html_regex": "htmlCta",
-            "layout": CTA
-        }, {
-            "toggle_name": "toggleBodyText",
-            "html_regex": "htmlBodyText",
-            "layout": BODY_TEXT
-        }]
+        // cta
+        if (this.props.content.toggleCta) {
+            regex = /\[htmlCta\]/gi;
+            html = html.replace(regex, CTA);
 
-        for (let i = 0; i < layoutArr.length; i++) {
-            regex = new RegExp(`\\[${layoutArr[i].html_regex}\\]`, "gi")
-            if (this.props.content[layoutArr[i].toggle_name]) {
-                html = html.replace(regex, layoutArr[i].layout);
+            if (this.props.content.toggleBodyText && !this.props.content.toggleCtaBodyOrder) {
+                html = addSpacer(html, this.props.content, ["toggleBodyText"], 40, ``);
             } else {
-                html = html.replace(regex, "");
+                html = addSpacer(html, "none");
             }
+        } else {
+            regex = /\[htmlCta\]/gi;
+            html = html.replace(regex, "");
+        }
+
+        // body text
+        if (this.props.content.toggleBodyText) {
+            regex = /\[htmlBodyText\]/gi;
+            html = html.replace(regex, BODY_TEXT);
+
+            if (this.props.content.toggleCta && this.props.content.toggleCtaBodyOrder) {
+                html = addSpacer(html, this.props.content, ["toggleCta"], 40, ``);
+            } else {
+                html = addSpacer(html, "none");
+            }
+        } else {
+            regex = /\[htmlBodyText\]/gi;
+            html = html.replace(regex, "");
         }
 
         // --- Add Configurations ---

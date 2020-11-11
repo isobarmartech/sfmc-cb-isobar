@@ -10,6 +10,9 @@ export const LAYOUT = `
                         [htmlMain]
                     </td>
                 </tr>
+                <tr>
+                    <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                </tr>
             </table>
         </td>
     </tr>
@@ -25,9 +28,7 @@ export const IMAGE_FULL = `
             <img src="[imgSrc]" alt="" width="600" height="auto" style="display: block; border: 0; width: 600px;" class="w-full">
         </td>
     </tr>
-    <tr>
-        <td colspan="3" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-    </tr>
+    [spacerHtml]
 </table>
 <!-- image -->
 `
@@ -42,9 +43,7 @@ export const IMAGE_PADDED = `
         </td>
         <td class="w-20" width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
     </tr>
-    <tr>
-        <td colspan="3" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-    </tr>
+    [spacerHtml]
 </table>
 <!-- image -->
 `
@@ -59,9 +58,7 @@ export const IMAGE_FIXED = `
         </td>
         <td class="w-20" width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
     </tr>
-    <tr>
-        <td colspan="3" height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-    </tr>
+    [spacerHtml]
 </table>
 <!-- image -->
 `
@@ -93,9 +90,7 @@ export const HEADLINE = `
         [textHeadline] <span style="color: [brandColor];">[textHeadlineSecondary]</span>
     </td>
 </tr>
-<tr>
-    <td height="10" style="font-size: 1px; line-height: 1px; height: 10px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- headline -->
 `
 
@@ -115,9 +110,7 @@ export const BULLET_INFO = `
         </table>
     </td>
 </tr>
-<tr>
-    <td height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- bullet info -->
 `
 
@@ -137,9 +130,7 @@ export const CTA = `
         </table>
     </td>
 </tr>
-<tr>
-    <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- cta -->
 `
 
@@ -150,8 +141,6 @@ export const BODY_TEXT = `
         [textBodyText]
     </td>
 </tr>
-<tr>
-    <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- body text -->
 `
