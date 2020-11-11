@@ -32,28 +32,31 @@ class Article extends React.Component {
             html = LAYOUT_NOIMAGE;
         }
 
-        // Auto add layout
-        const layoutArr = [{
-            "toggle_name": "toggleHeadline",
-            "html_regex": "htmlHeadline",
-            "layout": HEADLINE
-        }, {
-            "toggle_name": "toggleCta",
-            "html_regex": "htmlCta",
-            "layout": CTA
-        }, {
-            "toggle_name": "toggleBodyText",
-            "html_regex": "htmlBodyText",
-            "layout": BODY_TEXT
-        }]
+        // headline
+        if (this.props.content.toggleHeadline) {
+            regex = /\[htmlHeadline\]/gi;
+            html = html.replace(regex, HEADLINE);
+        } else {
+            regex = /\[htmlHeadline\]/gi;
+            html = html.replace(regex, "");
+        }
 
-        for (let i = 0; i < layoutArr.length; i++) {
-            regex = new RegExp(`\\[${layoutArr[i].html_regex}\\]`, "gi")
-            if (this.props.content[layoutArr[i].toggle_name]) {
-                html = html.replace(regex, layoutArr[i].layout);
-            } else {
-                html = html.replace(regex, "");
-            }
+        // cta
+        if (this.props.content.toggleCta) {
+            regex = /\[htmlCta\]/gi;
+            html = html.replace(regex, CTA);
+        } else {
+            regex = /\[htmlCta\]/gi;
+            html = html.replace(regex, "");
+        }
+
+        // body text
+        if (this.props.content.toggleBodyText) {
+            regex = /\[htmlBodyText\]/gi;
+            html = html.replace(regex, BODY_TEXT);
+        } else {
+            regex = /\[htmlBodyText\]/gi;
+            html = html.replace(regex, "");
         }
 
         // --- Add Configurations ---
