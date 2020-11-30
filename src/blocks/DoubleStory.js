@@ -88,11 +88,11 @@ class Article extends React.Component {
         // --- Add Configurations ---
         if (this.props.content.imgSrc_1 === "") {
             regex = /\[imgSrc_1\]/gi;
-            html = html.replace(regex, "http://via.placeholder.com/250x250");
+            html = html.replace(regex, "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/25a93487-4809-4de6-8d17-73564e2fc028.png");
         }
         if (this.props.content.imgSrc_2 === "") {
             regex = /\[imgSrc_2\]/gi;
-            html = html.replace(regex, "http://via.placeholder.com/250x250");
+            html = html.replace(regex, "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/25a93487-4809-4de6-8d17-73564e2fc028.png");
         }
         if (!this.props.content.toggleHeadlineSecondary) {
             regex = /\[textHeadlineSecondary_1\]/gi;

@@ -92,9 +92,9 @@ export const ui = {
     "images": {
         "shared": {
             "placeholders": {
-                "full": "https://via.placeholder.com/600x300",
-                "padded": "https://via.placeholder.com/540x300",
-                "fixed": "https://via.placeholder.com/280x280",
+                "full": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/561bb78e-c6e6-4e32-8ff0-2cac60c86d0c.png",
+                "padded": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/e1f92b23-de66-4fe4-8ac3-52fe81f6db4f.png",
+                "fixed": "http://image.e.isobar.com/lib/fe2b1170756404757d1378/m/1/68c352de-f84c-40ab-81a6-e280014f4d5c.png",
             }
         },
         "iso": {
