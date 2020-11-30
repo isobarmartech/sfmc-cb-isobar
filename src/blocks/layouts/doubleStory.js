@@ -37,7 +37,7 @@ export const COLUMN = `
 `
 
 export const COLUMN_SPACER = `
-<th class="hide" width="40" height="40" style="font-size: 1px; line-height: 1px; width: 40px; height: 40px;">&nbsp;</th>
+<th class="break" width="40" height="40" style="font-size: 1px; line-height: 1px; width: 40px; height: 40px;">&nbsp;</th>
 `
 
 export const IMAGE = `
