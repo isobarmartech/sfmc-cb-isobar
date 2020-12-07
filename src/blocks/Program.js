@@ -13,11 +13,12 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../core/helpers";
 import { LAYOUT, SINGLE_EVENT, SUBHEADLINE, SIGNUP_BOX, BODY_TEXT, CTA } from "./layouts/program";
 import { ui } from "../constants/ui.js";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -43,7 +44,7 @@ class Article extends React.Component {
                 events = events.replace(regex, `[textHeadline_${i}]`);
             } else {
                 regex = /\[textHeadline\]/gi;
-                events = events.replace(regex, `Name Nameson`);
+                events = events.replace(regex, `Headline`);
             }
 
             if (this.props.content[`textSubheadline_${i}`] && this.props.content[`textSubheadline_${i}`].length > 0) {
@@ -75,6 +76,7 @@ class Article extends React.Component {
         if (this.props.content.toggleBodyText) {
             regex = /\[htmlBodyText\]/gi;
             html = html.replace(regex, BODY_TEXT);
+            html = addSpacer(html, this.props.content, ["toggleCta"], 30, ``);
         } else {
             regex = /\[htmlBodyText\]/gi;
             html = html.replace(regex, "");
@@ -169,10 +171,9 @@ class Article extends React.Component {
         let events = [];
         for (let i = 1; i <= this.props.content.eventAmount; i++) {
             let lay = (<div className="slds-theme_shade slds-p-around_medium slds-m-top_small slds-box">
-                <div className="slds-text-heading_small slds-m-bottom_xx-small">Event {i}</div>
+                <div className="slds-text-heading_small slds-m-bottom_x-small">Event {i}</div>
                 <div className="slds-clearfix">
                     <div className="slds-float_left slds-size_1-of-5 slds-m-right_small">
-                        <div className="slds-text-title slds-m-top_xx-small slds-m-bottom_xx-small">Time</div>
                         <Input
                             placeholder="00:00"
                             value={this.props.content[`textTime_${i}`]}
@@ -182,9 +183,8 @@ class Article extends React.Component {
                         />
                     </div>
                     <div className="slds-float_left slds-size_1-of-3 slds-m-right_small">
-                        <div className="slds-text-title slds-m-top_xx-small slds-m-bottom_xx-small">Headline</div>
                         <Input
-                            placeholder="Name Nameson"
+                            placeholder="Headline"
                             value={this.props.content[`textHeadline_${i}`]}
                             onChange={event => {
                                 this.onChange(`textHeadline_${i}`, event.target.value);
@@ -192,9 +192,8 @@ class Article extends React.Component {
                         />
                     </div>
                     <div className="slds-float_left slds-size_3-of-8">
-                        <div className="slds-text-title slds-m-top_xx-small slds-m-bottom_xx-small">Subheadline</div>
                         <Input
-                            placeholder="Description"
+                            placeholder="Subheadline"
                             value={this.props.content[`textSubheadline_${i}`]}
                             onChange={event => {
                                 this.onChange(`textSubheadline_${i}`, event.target.value);
@@ -367,4 +366,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

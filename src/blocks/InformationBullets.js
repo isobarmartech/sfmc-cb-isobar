@@ -18,7 +18,7 @@ import { richTextToHtml } from "../components/RichTextEditor";
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -256,4 +256,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

@@ -12,11 +12,12 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../core/helpers";
 import { LAYOUT, CTA_BUTTON, CTA_LINK } from "./layouts/ctaGroup";
 import { ui } from "../constants/ui.js";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -50,6 +51,11 @@ class Article extends React.Component {
             ctaList = ctaList.replace(regex, `[textCta_${i}]`);
             regex = /\[linkCta\]/gi;
             ctaList = ctaList.replace(regex, `[linkCta_${i}]`);
+            if ((i + 1) <= this.props.content.ctaAmount) {
+                ctaList = addSpacer(ctaList, this.props.content, ["toggleCta"], 20, `colspan="3"`);
+            } else {
+                ctaList = addSpacer(ctaList, "none");
+            }
         }
         regex = /\[htmlCta\]/gi;
         html = html.replace(regex, ctaList);
@@ -320,4 +326,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

@@ -9,7 +9,7 @@ export const LAYOUT = `
                     <td>
                         <table border="0" cellspacing="0" cellpadding="0" width="100%" dir="[direction]">
                             <tr>
-                                <th class="break" width="250" style="width: 250;" valign="middle">
+                                <th class="break" width="250" style="width: 250px;" valign="middle">
                                     <table border="0" cellspacing="0" cellpadding="0" width="100%" dir="ltr">
                                         <tr>
                                             <td align="center">
@@ -69,16 +69,11 @@ export const LAYOUT_NOIMAGE = `
 export const HEADLINE = `
 <!-- headline -->
 <tr>
-    <td height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
-<tr>
     <td align="left" style="font-size: [textHeadlineFontsize]px; line-height: [textHeadlineLineheight]px; color: #000000; font-family: [primaryFont]; font-weight: 400;">
         [textHeadline] <span style="color: [brandColor];">[textHeadlineSecondary]</span>
     </td>
 </tr>
-<tr>
-    <td height="10" style="font-size: 1px; line-height: 1px; height: 10px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- headline -->
 `
 
@@ -89,9 +84,7 @@ export const BODY_TEXT = `
         [textBodyText]
     </td>
 </tr>
-<tr>
-    <td height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- body text -->
 `
 

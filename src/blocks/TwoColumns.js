@@ -14,11 +14,12 @@ import { LAYOUT, LAYOUT_NOIMAGE, HEADLINE, CTA, BODY_TEXT } from "./layouts/twoC
 import { ui } from "../constants/ui.js";
 import RichTextEditor from '../components/RichTextEditor';
 import { richTextToHtml } from "../components/RichTextEditor";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -36,8 +37,23 @@ class Article extends React.Component {
         if (this.props.content.toggleHeadline) {
             regex = /\[htmlHeadline\]/gi;
             html = html.replace(regex, HEADLINE);
+            if (this.props.content.toggleBodyText) {
+                html = addSpacer(html, this.props.content, ["toggleBodyText"], 10, ``);
+            } else {
+                html = addSpacer(html, this.props.content, ["toggleCta"], 20, ``);
+            }
         } else {
             regex = /\[htmlHeadline\]/gi;
+            html = html.replace(regex, "");
+        }
+
+        // body text
+        if (this.props.content.toggleBodyText) {
+            regex = /\[htmlBodyText\]/gi;
+            html = html.replace(regex, BODY_TEXT);
+            html = addSpacer(html, this.props.content, ["toggleCta"], 20, ``);
+        } else {
+            regex = /\[htmlBodyText\]/gi;
             html = html.replace(regex, "");
         }
 
@@ -47,15 +63,6 @@ class Article extends React.Component {
             html = html.replace(regex, CTA);
         } else {
             regex = /\[htmlCta\]/gi;
-            html = html.replace(regex, "");
-        }
-
-        // body text
-        if (this.props.content.toggleBodyText) {
-            regex = /\[htmlBodyText\]/gi;
-            html = html.replace(regex, BODY_TEXT);
-        } else {
-            regex = /\[htmlBodyText\]/gi;
             html = html.replace(regex, "");
         }
 
@@ -132,7 +139,7 @@ class Article extends React.Component {
                         // Configs
                         direction: "ltr",
                         toggleHeadlineSecondary: true,
-                        headlineSize: "large",
+                        headlineSize: "small",
                         ctaStyle: "default",
 
                         // Inputs
@@ -422,4 +429,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

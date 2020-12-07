@@ -37,7 +37,7 @@ export const COLUMN = `
 `
 
 export const COLUMN_SPACER = `
-<th class="break" width="40" height="40" style="font-size: 1px; line-height: 1px; width: 40px; height: 40px;">&nbsp;</th>
+<th class="break h-40" width="40" height="10" style="font-size: 1px; line-height: 1px; width: 40px; height: 10px;">&nbsp;</th>
 `
 
 export const IMAGE = `
@@ -48,9 +48,7 @@ export const IMAGE = `
             <img src="[imgSrc]" alt="" width="250" height="auto" style="display: block; border: 0; width: 250px;" class="w-full">
         </td>
     </tr>
-    <tr>
-        <td height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-    </tr>
+    [spacerHtml]
 </table>
 <!-- image -->
 `
@@ -62,9 +60,7 @@ export const HEADLINE = `
         [textHeadline] <span style="color: [brandColor];">[textHeadlineSecondary]</span>
     </td>
 </tr>
-<tr>
-    <td height="10" style="font-size: 1px; line-height: 1px; height: 10px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- headline -->
 `
 
@@ -75,9 +71,7 @@ export const BODY_TEXT = `
         [textBodyText]
     </td>
 </tr>
-<tr>
-    <td height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- body text -->
 `
 

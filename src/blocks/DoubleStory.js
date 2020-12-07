@@ -14,11 +14,12 @@ import { LAYOUT, COLUMN, COLUMN_SPACER, IMAGE, HEADLINE, CTA, BODY_TEXT } from "
 import { ui } from "../constants/ui.js";
 import RichTextEditor from '../components/RichTextEditor';
 import { richTextToHtml } from "../components/RichTextEditor";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -38,6 +39,11 @@ class Article extends React.Component {
                 col = col.replace(regex, IMAGE);
                 regex = /\[imgSrc\]/gi;
                 col = col.replace(regex, `[imgSrc_${i + 1}]`);
+                if (this.props.content.toggleHeadline || this.props.content.toggleBodyText) {
+                    col = addSpacer(col, this.props.content, ["toggleHeadline", "toggleBodyText"], 10, ``);
+                } else {
+                    col = addSpacer(col, this.props.content, ["toggleCta"], 20, ``);
+                }
             } else {
                 regex = /\[htmlImg\]/gi;
                 col = col.replace(regex, "");
@@ -49,6 +55,11 @@ class Article extends React.Component {
                 col = col.replace(regex, `[textHeadline_${i + 1}]`);
                 regex = /\[textHeadlineSecondary\]/gi;
                 col = col.replace(regex, `[textHeadlineSecondary_${i + 1}]`);
+                if (this.props.content.toggleBodyText) {
+                    col = addSpacer(col, this.props.content, ["toggleBodyText"], 10, ``);
+                } else {
+                    col = addSpacer(col, this.props.content, ["toggleCta"], 20, ``);
+                }
             } else {
                 regex = /\[htmlHeadline\]/gi;
                 col = col.replace(regex, "");
@@ -58,6 +69,7 @@ class Article extends React.Component {
                 col = col.replace(regex, BODY_TEXT);
                 regex = /\[textBodyText\]/gi;
                 col = col.replace(regex, `[textBodyText_${i + 1}]`);
+                col = addSpacer(col, this.props.content, ["toggleCta"], 20, ``);
             } else {
                 regex = /\[htmlBodyText\]/gi;
                 col = col.replace(regex, "");
@@ -534,4 +546,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

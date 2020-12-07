@@ -19,7 +19,7 @@ import { addSpacer } from "../components/AddSpacer";
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -97,7 +97,7 @@ class Article extends React.Component {
             if (this.props.content.toggleBodyText && !this.props.content.toggleCtaBodyOrder) {
                 html = addSpacer(html, this.props.content, ["toggleBodyText"], 40, ``);
             } else {
-                html = addSpacer(html, "none");
+                html = addSpacer(html, this.props.content, false);
             }
         } else {
             regex = /\[htmlCta\]/gi;
@@ -112,7 +112,7 @@ class Article extends React.Component {
             if (this.props.content.toggleCta && this.props.content.toggleCtaBodyOrder) {
                 html = addSpacer(html, this.props.content, ["toggleCta"], 40, ``);
             } else {
-                html = addSpacer(html, "none");
+                html = addSpacer(html, this.props.content, false);
             }
         } else {
             regex = /\[htmlBodyText\]/gi;
@@ -194,7 +194,7 @@ class Article extends React.Component {
                         imgStyle: "full",
                         alignment: "left",
                         toggleHeadlineSecondary: false,
-                        headlineSize: "small",
+                        headlineSize: "large",
                         ctaStyle: "default",
                         toggleCtaBodyOrder: false,
 
@@ -554,4 +554,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

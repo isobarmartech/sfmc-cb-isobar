@@ -85,7 +85,7 @@ export const SIGNUP_BOX = `
                             [htmlBodyText]
                             [htmlCta]
                             <tr>
-                                <td height="40" style="font-size: 1px; line-height: 1px; height: 40px;">&nbsp;</td>
+                                <td height="70" style="font-size: 1px; line-height: 1px; height: 70px;">&nbsp;</td>
                             </tr>
                         </table>
                     </td>
@@ -104,9 +104,7 @@ export const BODY_TEXT = `
         <span style="color: #000000">[textBody_black]</span> [textBody_white]
     </td>
 </tr>
-<tr>
-    <td height="30" style="font-size: 1px; line-height: 1px; height: 30px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 <!-- body text -->
 `
 
@@ -125,9 +123,6 @@ export const CTA = `
             </tr>
         </table>
     </td>
-</tr>
-<tr>
-    <td height="30" style="font-size: 1px; line-height: 1px; height: 30px;">&nbsp;</td>
 </tr>
 <!-- cta -->
 `

@@ -11,11 +11,12 @@ import { connect } from "react-redux";
 import { mapStateToProps, mapDispatchToProps } from "../core/helpers";
 import { LAYOUT, INFORMATION, HYPERLINKS, UNSUBSCRIBE } from "./layouts/footer";
 import { ui } from "../constants/ui.js";
+import { addSpacer } from "../components/AddSpacer";
 
 var SDK = require("blocksdk");
 var sdk = new SDK();
 
-class Article extends React.Component {
+class Module extends React.Component {
     onChange = (element, value) => {
         this.props.editContent(element, value);
     };
@@ -26,10 +27,13 @@ class Article extends React.Component {
 
         // --- Build Layout ---
 
+
         if (this.props.content.toggleInfo) {
+            html = addSpacer(html, this.props.content, ["toggleInfo"], 40, `colspan="3"`);
             regex = /\[htmlInformation\]/gi;
             html = html.replace(regex, INFORMATION);
         } else {
+            html = addSpacer(html, this.props.content, true, 20, `colspan="3"`);
             regex = /\[htmlInformation\]/gi;
             html = html.replace(regex, "");
         }
@@ -69,22 +73,12 @@ class Article extends React.Component {
             html = html.replace(regex, `I wish to not receive any more emails from ${this.props.content.brandName}`);
         }
 
-        if (this.props.content.toggleInfo) {
-            regex = /\[paddingHeight\]/gi;
-            html = html.replace(regex, "40");
-            if (this.props.content.togglePadding) {
-                regex = /\[paddingWidth\]/gi;
-                html = html.replace(regex, "70");
-            } else {
-                regex = /\[paddingWidth\]/gi;
-                html = html.replace(regex, "30");
-            }
+        if (this.props.content.toggleInfo && this.props.content.togglePadding) {
+            regex = /\[paddingWidth\]/gi;
+            html = html.replace(regex, "70");
         } else {
-            regex = /\[paddingHeight\]/gi;
-            html = html.replace(regex, "20");
             regex = /\[paddingWidth\]/gi;
             html = html.replace(regex, "30");
-
         }
 
         if (this.props.content.toggleColors) {
@@ -406,4 +400,4 @@ class Article extends React.Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+export default connect(mapStateToProps, mapDispatchToProps)(Module);

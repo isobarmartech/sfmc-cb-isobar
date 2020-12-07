@@ -8,9 +8,7 @@ export const LAYOUT = `
                     <td width="[paddingWidth]" class="w-30" style="font-size: 1px; line-height: 1px; width: [paddingWidth]px;">&nbsp;</td>
                     <td>
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                            <tr>
-                                <td height="[paddingHeight]" colspan="3" style="font-size: 1px; line-height: 1px; height: [paddingHeight]px;">&nbsp;</td>
-                            </tr>
+                            [spacerHtml]
                             <tr>
                                 <td colspan="3">
                                     <a href="[link_logo]" target="_blank">
@@ -19,9 +17,7 @@ export const LAYOUT = `
                                 </td>
                             </tr>
                             [htmlInformation]
-                            <tr>
-                                <td height="[paddingHeight]" colspan="3" style="font-size: 1px; line-height: 1px; height: [paddingHeight]px;">&nbsp;</td>
-                            </tr>
+                            [spacerHtml]
                         </table>
                     </td>
                     <td width="[paddingWidth]" class="w-30" style="font-size: 1px; line-height: 1px; width: [paddingWidth]px;">&nbsp;</td>
@@ -79,7 +75,6 @@ export const UNSUBSCRIBE = `
                     <td width="70" class="w-20" style="font-size: 1px; line-height: 1px; width: 70px;">&nbsp;</td>
                     <td>
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
-
                             <tr>
                                 <td height="15" style="font-size: 1px; line-height: 1px; height: 15px;">&nbsp;</td>
                             </tr>

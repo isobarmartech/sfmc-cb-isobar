@@ -40,9 +40,7 @@ export const CTA_BUTTON = `
     </td>
     <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
 </tr>
-<tr>
-    <td colspan="3" height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 `
 
 export const CTA_LINK = `
@@ -55,7 +53,5 @@ export const CTA_LINK = `
     </td>
     <td width="30" style="font-size: 1px; line-height: 1px; width: 30px;">&nbsp;</td>
 </tr>
-<tr>
-    <td colspan="3" height="20" style="font-size: 1px; line-height: 1px; height: 20px;">&nbsp;</td>
-</tr>
+[spacerHtml]
 `
